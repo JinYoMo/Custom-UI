@@ -12,6 +12,7 @@
  * 》添加<router-view> 何处展示组件
  * 》添加<router-link> 路由跳转
  */
+import "./index.scss";
 import { createApp } from 'vue'
 import App from './App.vue'
 import './index.css'
