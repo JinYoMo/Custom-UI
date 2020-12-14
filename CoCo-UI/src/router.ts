@@ -18,7 +18,6 @@ export const router = createRouter({
       path: '/doc', component: Doc, children: [
         { path: 'switch', component: SwitchDemo }
       ]
-
     }
   ]
 });

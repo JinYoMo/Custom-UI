@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <Topnav />
+    <Topnav class="nav" />
     <div class="content">
       <aside v-if="menuVisible">
         <h2>文档</h2>
