@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <!-- <Topnav toggleMenuButtonVisible class="nav" /> -->
+    <Topnav />
     <div class="content">
       <!-- v-if="menuVisible" -->
       <aside>
@@ -40,8 +40,11 @@
 </template>
 
 <script lang="ts">
+import Topnav from "../components/Topnav.vue";
 export default {
-  components: {},
+  components: {
+    Topnav,
+  },
 };
 </script>
 
