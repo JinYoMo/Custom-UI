@@ -6,25 +6,24 @@
         <use xlink:href="#icon-king"></use>
       </svg>
     </router-link> -->
-    <div class="logo" @click="toggleMenu">LOGO</div>
+    <div class="logo">LOGO</div>
     <ul class="menu">
       <li>
         <router-link to="/doc">文档</router-link>
       </li>
     </ul>
-    <!-- <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleMenu">
+    <svg class="toggleAside" @click="toggleMenu">
       <use xlink:href="#icon-menu"></use>
-    </svg> -->
+    </svg>
   </div>
 </template>
 <script lang="ts">
 import { inject, Ref } from "vue";
 export default {
   setup() {
-    const menuVisible = inject<Ref<Boolean>>("xxx"); //get ts语法将menuVisible标记为Boolean
-    console.log("topnav 获取的menuVisible为：" + menuVisible.value); //Ref为盒子 内部value才能取到值
+    const menuVisible = inject<Ref<Boolean>>("menuVisible"); //get ts语法将menuVisible标记为Boolean
     const toggleMenu = () => {
-      menuVisible.value = !menuVisible.value;
+      menuVisible.value = !menuVisible.value; //Ref为盒子 内部value才能取到值  menuVisible.value
     };
     return { toggleMenu };
   },
@@ -41,7 +40,7 @@ $color: #007974;
   left: 0;
   width: 100%;
   z-index: 20;
-  justify-content: center;
+  justify-content: center; //居中
   align-items: center;
   > .logo {
     max-width: 6em;
