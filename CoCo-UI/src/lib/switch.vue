@@ -11,7 +11,7 @@ export default {
     // const checked = ref(false);  //checked默认值为false :class="{checked:checked}"可简写为:class="{checked}"
     const toggle = () => {
       // checked.value = !checked.value;  //checked是常量 checked不可改 但checked是格ref盒子 checked里的value是可以改的
-      context.emit('input', !props.value)
+      context.emit('update:value', !props.value)
     }
     return { toggle }
   }
