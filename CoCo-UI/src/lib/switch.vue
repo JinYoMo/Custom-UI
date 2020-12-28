@@ -1,15 +1,19 @@
 <template>
-  <button @click="toggle" :class="{checked}"><span></span></button>
+  <button @click="toggle" :class="{checked:value}"><span></span></button>
 </template>
 <script>
 import { ref } from 'vue';
 export default {
-  setup () {
-    const checked = ref(false);  //checked默认值为false :class="{checked:checked}"可简写为:class="{checked}"
+  props: {
+    value: Boolean
+  },
+  setup (props, context) {
+    // const checked = ref(false);  //checked默认值为false :class="{checked:checked}"可简写为:class="{checked}"
     const toggle = () => {
-      checked.value = !checked.value;  //checked是常量 checked不可改 但checked是格ref盒子 checked里的value是可以改的
+      // checked.value = !checked.value;  //checked是常量 checked不可改 但checked是格ref盒子 checked里的value是可以改的
+      context.emit('input', !props.value)
     }
-    return { checked, toggle }
+    return { toggle }
   }
 }
 </script>
