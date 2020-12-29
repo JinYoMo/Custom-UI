@@ -27,7 +27,8 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
+//组件内不能使用scoped
 div {
   border: 1px solid red;
 }

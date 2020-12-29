@@ -1,5 +1,5 @@
 <template>
-  <button @click="toggle" :class="{checked:value}"><span></span></button>
+  <button @click="toggle" class="coco-switch" :class="{'coco-checked':value}"><span></span></button>
 </template>
 <script>
 import { ref } from 'vue';
@@ -17,10 +17,10 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 $h: 22px;
 $h2: $h - 4px;
-button {
+.coco-switch {
   height: $h;
   width: $h * 2;
   border: none;
@@ -37,7 +37,7 @@ button {
     border-radius: $h2/2;
     transition: all 250ms; //点击丝滑
   }
-  &.checked {
+  &.coco-checked {
     background: #1890ff;
     > span {
       left: calc(100% - #{$h2} - 2px);
@@ -51,7 +51,7 @@ button {
       width: $h2 + 4px;
     }
   }
-  &.checked:active {
+  &.coco-checked:active {
     > span {
       width: $h2 + 4px;
       margin-left: -4px;
