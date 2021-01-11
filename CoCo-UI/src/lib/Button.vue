@@ -1,6 +1,7 @@
 
 <template>
   <button class="coco-button" :class="classes" :disabled="disabled">
+    <span v-if="loading" class="coco-loadingIndicator"></span>
     <slot />
   </button>
 </template>
@@ -21,6 +22,10 @@ export default {
       default: "normal",
     },
     disabled: {
+      type: Boolean,
+      default: false,
+    },
+    loading: {
       type: Boolean,
       default: false,
     },
@@ -191,6 +196,26 @@ $radius: 4px;
       cursor: not-allowed;
       color: $grey;
     }
+  }
+  //加载中样式
+  > .coco-loadingIndicator {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 4px;
+    border-radius: 8px;
+    border-color: $blue $blue $blue transparent;
+    border-style: solid;
+    border-width: 2px;
+    animation: coco-spin 1s infinite linear;
+  }
+}
+@keyframes coco-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 </style>
