@@ -1,23 +1,26 @@
 <template>
   <template v-if="visible">
-    <div class="coco-dialog-overlay" @click="onClickOverlay"></div>
-    <div class="coco-dialog-wrapper">
-      <div class="coco-dialog">
-        <header>
-          <!-- 具名插槽 -->
-          <slot name="title" />
-          <span @click="close" class="coco-dialog-close"></span>
-        </header>
-        <main>
-          <!-- 具名插槽 -->
-          <slot name="content" />
-        </main>
-        <footer>
-          <Button @click="ok" level="main">OK</Button>
-          <Button @click="cancel">Cancel</Button>
-        </footer>
+    <!-- Teleport为新标签 相当于一个传送门 将内部代码放到body下，用于提高层级 防止Dialog被遮挡-->
+    <Teleport to="body">
+      <div class="coco-dialog-overlay" @click="onClickOverlay"></div>
+      <div class="coco-dialog-wrapper">
+        <div class="coco-dialog">
+          <header>
+            <!-- 具名插槽 -->
+            <slot name="title" />
+            <span @click="close" class="coco-dialog-close"></span>
+          </header>
+          <main>
+            <!-- 具名插槽 -->
+            <slot name="content" />
+          </main>
+          <footer>
+            <Button @click="ok" level="main">OK</Button>
+            <Button @click="cancel">Cancel</Button>
+          </footer>
+        </div>
       </div>
-    </div>
+    </Teleport>
   </template>
 </template>
 <script lang="ts">
