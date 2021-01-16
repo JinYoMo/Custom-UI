@@ -3,10 +3,10 @@
     <div class="coco-dialog-overlay" @click="onClickOverlay"></div>
     <div class="coco-dialog-wrapper">
       <div class="coco-dialog">
-        <header>标题 <span @click="close" class="coco-dialog-close"></span></header>
+        <header>{{title}} <span @click="close" class="coco-dialog-close"></span></header>
         <main>
-          <p>第一行字</p>
-          <p>第二行字</p>
+          <!-- 插槽 -->
+          <slot />
         </main>
         <footer>
           <Button @click="ok" level="main">OK</Button>
@@ -20,6 +20,10 @@
 import Button from "./Button.vue";
 export default {
   props: {
+    title: {
+      type: String,
+      default: "提示",
+    },
     visible: {
       type: Boolean,
       default: false,
