@@ -3,10 +3,14 @@
     <div class="coco-dialog-overlay" @click="onClickOverlay"></div>
     <div class="coco-dialog-wrapper">
       <div class="coco-dialog">
-        <header>{{title}} <span @click="close" class="coco-dialog-close"></span></header>
+        <header>
+          <!-- 具名插槽 -->
+          <slot name="title" />
+          <span @click="close" class="coco-dialog-close"></span>
+        </header>
         <main>
-          <!-- 插槽 -->
-          <slot />
+          <!-- 具名插槽 -->
+          <slot name="content" />
         </main>
         <footer>
           <Button @click="ok" level="main">OK</Button>
@@ -20,10 +24,6 @@
 import Button from "./Button.vue";
 export default {
   props: {
-    title: {
-      type: String,
-      default: "提示",
-    },
     visible: {
       type: Boolean,
       default: false,
