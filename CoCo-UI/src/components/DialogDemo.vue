@@ -39,6 +39,7 @@ export default {
       openDialog({
         title: "标题",
         content: "你好",
+        closeOnClickOverlay: false,
         //ok cancel 为函数
         ok() {
           return false;
