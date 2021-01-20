@@ -1,17 +1,25 @@
 <template>
   <div class="coco-tabs">
     <div class="coco-tabs-nav">
-      <div class="coco-tabs-nav-item" v-for="(t,index) in titles" :key="index">{{t}}</div>
+      <div class="coco-tabs-nav-item" :class="{selected:t===selected}" v-for="(t,index) in titles" @click="select(t)"
+        :key="index">{{t}}
+      </div>
     </div>
     <div class="coco-tabs-content">
       <!-- component实现插槽效果 -->
-      <component class="coco-tabs-content-item" v-for="(c,index) in defaults" :is="c" :key="index" />
+      <component class="coco-tabs-content-item" :is="current" />
     </div>
   </div>
 </template>
 <script lang="ts">
+import { computed } from "vue";
 import Tab from "./Tab.vue";
 export default {
+  props: {
+    selected: {
+      type: String,
+    },
+  },
   setup(props, context) {
     //在运行是确认子组件的类型 检查context.slots.default()数组的每一项type
     const defaults = context.slots.default();
@@ -23,7 +31,15 @@ export default {
     const titles = defaults.map((tag) => {
       return tag.props.title;
     });
-    return { defaults, titles };
+    const current = computed(() => {
+      return defaults.filter((tag) => {
+        return tag.props.title === props.selected;
+      })[0];
+    });
+    const select = (title: String) => {
+      context.emit("update:selected", title);
+    };
+    return { defaults, titles, current, select };
   },
 };
 </script>
