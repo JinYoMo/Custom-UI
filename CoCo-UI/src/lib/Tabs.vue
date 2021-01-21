@@ -14,7 +14,7 @@
   </div>
 </template>
 <script lang="ts">
-import { computed, onMounted, onUpdated, watchEffect, ref } from "vue";
+import { computed, onMounted, watchEffect, ref } from "vue";
 import Tab from "./Tab.vue";
 export default {
   props: {

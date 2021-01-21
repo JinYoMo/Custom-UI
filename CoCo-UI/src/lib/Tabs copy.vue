@@ -8,8 +8,9 @@
     </div>
     <div class="coco-tabs-content">
       <!-- component实现插槽效果 -->
-      <component class="coco-tabs-content-item" :class="{selected:c.props.title===selected}"
-        v-for="(c,index) in defaults" :is="c" :key="index" />
+      <!-- <component class="coco-tabs-content-item" :class="{selected:c.props.title===selected}"
+        v-for="(c,index) in defaults" :is="c" :key="index" /> -->
+      <component class="coco-tabs-content-item" :is="current" :key="current.props.title" />
     </div>
   </div>
 </template>
@@ -53,15 +54,23 @@ export default {
       return tag.props.title;
     });
     //使用计算属性修改current 改变一次都会重新计算
-    // const current = computed(() => {
-    //   return defaults.filter((tag) => {
-    //     return tag.props.title === props.selected;
-    //   })[0];
-    // });
+    const current = computed(() => {
+      return defaults.filter((tag) => {
+        return tag.props.title === props.selected;
+      })[0];
+    });
     const select = (title: String) => {
       context.emit("update:selected", title);
     };
-    return { navItems, indicator, container, defaults, titles, select };
+    return {
+      navItems,
+      indicator,
+      container,
+      defaults,
+      titles,
+      current,
+      select,
+    };
   },
 };
 </script>
@@ -98,12 +107,6 @@ $border-color: #d9d9d9;
   }
   &-content {
     padding: 8px 0;
-    &-item {
-      display: none;
-      &.selected {
-        display: block;
-      }
-    }
   }
 }
 </style>
