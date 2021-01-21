@@ -2,7 +2,7 @@
   <div class="coco-tabs">
     <div class="coco-tabs-nav" ref="container">
       <div class="coco-tabs-nav-item" :class="{selected:t===selected}" v-for="(t,index) in titles"
-        :ref="el=>{if(t===selected) selectedItem=el}" @click="select(t)" :key="index">{{t}}
+        :ref="el=>{if(el) navItems[index]=el}" @click="select(t)" :key="index">{{t}}
       </div>
       <div class="coco-tabs-nav-indicator" ref="indicator"></div>
     </div>
@@ -23,14 +23,18 @@ export default {
     },
   },
   setup(props, context) {
-    const selectedItem = ref<HTMLDivElement>(null);
+    const navItems = ref<HTMLDivElement[]>([]);
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null);
     const x = () => {
-      const { width } = selectedItem.value.getBoundingClientRect(); //获取选中元素的宽度
+      const divs = navItems.value;
+      const result = divs.filter((div) =>
+        div.classList.contains("selected")
+      )[0]; //获取到被选中元素
+      const { width } = result.getBoundingClientRect(); //获取选中元素的宽度
       indicator.value.style.width = width + "px"; //将元素宽度赋给下划线
       const { left: left1 } = container.value.getBoundingClientRect();
-      const { left: left2 } = selectedItem.value.getBoundingClientRect();
+      const { left: left2 } = result.getBoundingClientRect();
       const left = left2 - left1;
       indicator.value.style.left = left + "px"; //下划线的位置
     };
@@ -57,7 +61,7 @@ export default {
     const select = (title: String) => {
       context.emit("update:selected", title);
     };
-    return { selectedItem, indicator, container, defaults, titles, select };
+    return { navItems, indicator, container, defaults, titles, select };
   },
 };
 </script>
