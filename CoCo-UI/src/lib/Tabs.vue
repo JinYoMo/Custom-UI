@@ -14,7 +14,7 @@
   </div>
 </template>
 <script lang="ts">
-import { computed, onMounted, onUpdated, ref } from "vue";
+import { computed, onMounted, onUpdated, watchEffect, ref } from "vue";
 import Tab from "./Tab.vue";
 export default {
   props: {
@@ -38,6 +38,8 @@ export default {
     onMounted(x);
     //更新时渲染
     onUpdated(x);
+    //第一次和后面几次均会执行
+    // watchEffect(x);
     //在运行是确认子组件的类型 检查context.slots.default()数组的每一项type
     const defaults = context.slots.default();
     defaults.forEach((tags) => {
@@ -48,12 +50,6 @@ export default {
     const titles = defaults.map((tag) => {
       return tag.props.title;
     });
-    //使用计算属性修改current 改变一次都会重新计算
-    // const current = computed(() => {
-    //   return defaults.filter((tag) => {
-    //     return tag.props.title === props.selected;
-    //   })[0];
-    // });
     const select = (title: String) => {
       context.emit("update:selected", title);
     };
