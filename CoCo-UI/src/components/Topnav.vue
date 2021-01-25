@@ -1,12 +1,12 @@
 
 <template>
   <div class="topnav">
-    <!-- <router-link to="/" class="logo">
+    <router-link to="/" class="logo">
       <svg class="icon">
         <use xlink:href="#icon-king"></use>
       </svg>
-    </router-link> -->
-    <div class="logo">LOGO</div>
+    </router-link>
+    <!-- <div class="logo">LOGO</div> -->
     <ul class="menu">
       <li>
         <router-link to="/doc">文档</router-link>
