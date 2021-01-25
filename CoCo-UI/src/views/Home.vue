@@ -59,6 +59,8 @@ $color: #007974;
     rgba(183, 233, 230, 1) 100%
   );
   clip-path: ellipse(80% 60% at 50% 40%);
+  // border-bottom-left-radius: 50% 40px;  //半圆弧
+  // border-bottom-right-radius: 50% 40px;
 }
 .features {
   margin: 64px auto;
