@@ -12,7 +12,7 @@
         <router-link to="/doc">文档</router-link>
       </li>
     </ul>
-    <svg class="toggleAside" @click="toggleMenu">
+    <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleMenu">
       <use xlink:href="#icon-menu"></use>
     </svg>
   </div>
@@ -20,6 +20,12 @@
 <script lang="ts">
 import { inject, Ref } from "vue";
 export default {
+  props: {
+    toggleMenuButtonVisible: {
+      type: Boolean,
+      default: false,
+    },
+  },
   setup() {
     const menuVisible = inject<Ref<Boolean>>("menuVisible"); //get ts语法将menuVisible标记为Boolean
     const toggleMenu = () => {
