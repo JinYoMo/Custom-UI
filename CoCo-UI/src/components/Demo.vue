@@ -17,7 +17,7 @@
 <script lang="ts">
 import Button from "../lib/Button.vue";
 import "prismjs";
-// import "prismjs/themes/prism-coy.css";
+import "prismjs/themes/prism-coy.css";
 import { computed, ref } from "vue";
 const Prism = (window as any).Prism;
 export default {
@@ -67,6 +67,7 @@ $border-color: #d9d9d9;
   &-code {
     padding: 8px 16px;
     border-top: 1px dashed $border-color;
+    overflow-x: auto;
     > pre {
       line-height: 1.1;
       font-family: Consolas, "Courier New", Courier, monospace;

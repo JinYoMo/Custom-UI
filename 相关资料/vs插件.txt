@@ -32,3 +32,5 @@ https://www.snipaste.com/  snipaste截图工具
 
 取渐变色：cssgradient.io
 取图标：iconfont.cn 引入js--使用帮助--svg引用(css svg)
+
+git remote add origin git@github.com:fanjinkun/coco-ui-website.git
