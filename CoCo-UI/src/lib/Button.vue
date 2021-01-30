@@ -199,8 +199,8 @@ $radius: 4px;
   }
   //加载中样式
   > .coco-loadingIndicator {
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
     display: inline-block;
     margin-right: 4px;
     border-radius: 8px;
