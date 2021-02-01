@@ -5,7 +5,8 @@
       <component :is="component" />
     </div>
     <div class="demo-actions">
-      <Button @click="toggleCode">查看代码</Button>
+      <Button @click="hideCode" v-if="codeVisible">隐藏代码</Button>
+      <Button @click="showCode" v-else>查看代码</Button>
     </div>
     <div class="demo-code" v-if="codeVisible">
       <pre class="language-html" v-html="html" />
@@ -17,7 +18,7 @@
 <script lang="ts">
 import Button from "../lib/Button.vue";
 import "prismjs";
-import "prismjs/themes/prism-coy.css";
+// import "prismjs/themes/prism-tomorrow.css";  //代码风格 部署时放开注释 本地时关闭注释
 import { computed, ref } from "vue";
 const Prism = (window as any).Prism;
 export default {
@@ -35,13 +36,15 @@ export default {
         "html"
       );
     });
-    const toggleCode = () => (codeVisible.value = !codeVisible.value);
+    const showCode = () => (codeVisible.value = true);
+    const hideCode = () => (codeVisible.value = false);
     const codeVisible = ref(false);
     return {
       Prism,
       html,
       codeVisible,
-      toggleCode,
+      showCode,
+      hideCode,
     };
   },
 };
@@ -65,6 +68,7 @@ $border-color: #d9d9d9;
     border-top: 1px dashed $border-color;
   }
   &-code {
+    width: 100%;
     padding: 8px 16px;
     border-top: 1px dashed $border-color;
     overflow-x: auto;

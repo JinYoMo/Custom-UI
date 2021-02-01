@@ -3,10 +3,10 @@
     <div class="topnavAndBanner">
       <Topnav class="topnavAndBanner" />
       <div class="banner">
-        <h1>轱辘UI</h1>
+        <h1>CoCo UI</h1>
         <h2>一个厉害的 UI 框架</h2>
         <p class="actions">
-          <a href="https://github.com/fanjinkun/Custom-UI/tree/main/CoCo-UI">GitHub</a>
+          <a href="https://github.com/jinyomo/Custom-UI/tree/main/CoCo-UI">GitHub</a>
           <router-link to="/doc">开始</router-link>
         </p>
       </div>
@@ -22,14 +22,14 @@
         </li>
         <li>
           <svg>
-            <use xlink:href="#icon-ts"></use>
+            <use xlink:href="#icon-typescript"></use>
           </svg>
           <h3>基于 TypeScript </h3>
           <p>源代码采用 TypeScript 书写</p>
         </li>
         <li>
           <svg>
-            <use xlink:href="#icon-light"></use>
+            <use xlink:href="#icon-dengpao2x"></use>
           </svg>
           <h3>代码易读</h3>
           <p>每个组件的源代码都极其简洁</p>
@@ -49,14 +49,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$green: #02bcb0;
+$green: #01baa4;
 $border-radius: 4px;
-$color: #007974;
+$color: #fff;
 .topnavAndBanner {
   background: linear-gradient(
     145deg,
-    rgba(227, 255, 253, 1) 0%,
-    rgba(183, 233, 230, 1) 100%
+    rgba(1, 138, 181, 1) 0%,
+    rgba(0, 159, 173, 1) 30%,
+    rgba(1, 186, 164, 1) 100%
   );
   clip-path: ellipse(80% 60% at 50% 40%);
   // border-bottom-left-radius: 50% 40px;  //半圆弧

@@ -3,7 +3,7 @@
   <div class="topnav">
     <router-link to="/" class="logo">
       <svg class="icon">
-        <use xlink:href="#icon-king"></use>
+        <use xlink:href="#icon--xiaozhu"></use>
       </svg>
     </router-link>
     <!-- <div class="logo">LOGO</div> -->
@@ -13,7 +13,7 @@
       </li>
     </ul>
     <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleMenu">
-      <use xlink:href="#icon-menu"></use>
+      <use xlink:href="#icon-daohang"></use>
     </svg>
   </div>
 </template>
@@ -36,7 +36,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-$color: #007974;
+$color: #fff;
 .topnav {
   color: $color;
   display: flex;
@@ -72,7 +72,8 @@ $color: #007974;
     top: 50%;
     transform: translateY(-50%);
     display: none;
-    background: fade-out(black, 0.9);
+    background: fade-out(#009fad, 0.8);
+    border-radius: 50%;
   }
   @media (max-width: 500px) {
     > .menu {

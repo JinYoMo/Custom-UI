@@ -30,7 +30,9 @@ commit 历史：https://github.com/FrankFang/8pPES5Jg7mjh/commits/master
 auto import //引入自动补全  方式：输入+tab
 https://www.snipaste.com/  snipaste截图工具
 
-取渐变色：cssgradient.io
-取图标：iconfont.cn 引入js--使用帮助--svg引用(css svg)
+取渐变色：https://cssgradient.io/
+取图标：https://www.iconfont.cn/  引入js--使用帮助--svg引用(css svg)
+
+#40a3dc  #7fc3e8  #d5f1ff  #40A9FF
 
 git remote add origin git@github.com:fanjinkun/coco-ui-website.git

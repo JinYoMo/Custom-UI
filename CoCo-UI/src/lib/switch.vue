@@ -38,7 +38,7 @@ $h2: $h - 4px;
     transition: all 250ms; //点击丝滑
   }
   &.coco-checked {
-    background: #1890ff;
+    background: #009fad;
     > span {
       left: calc(100% - #{$h2} - 2px);
     }
