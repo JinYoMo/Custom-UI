@@ -18,7 +18,7 @@
 <script lang="ts">
 import Button from "../lib/Button.vue";
 import "prismjs";
-// import "prismjs/themes/prism-tomorrow.css";  //代码风格 部署时放开注释 本地时关闭注释
+// import "prismjs/themes/prism-tomorrow.css"; //代码风格 部署时放开注释 本地时关闭注释
 import { computed, ref } from "vue";
 const Prism = (window as any).Prism;
 export default {
