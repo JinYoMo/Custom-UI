@@ -29,14 +29,17 @@ export default {
     //需要在挂载之后执行 只在第一次渲染执行
     onMounted(() => {
       //第一次和后面几次均会执行 避免在挂载之前执行
-      watchEffect(() => {
-        const { width } = selectedItem.value.getBoundingClientRect(); //获取选中元素的宽度
-        indicator.value.style.width = width + "px"; //将元素宽度赋给下划线
-        const { left: left1 } = container.value.getBoundingClientRect();
-        const { left: left2 } = selectedItem.value.getBoundingClientRect();
-        const left = left2 - left1;
-        indicator.value.style.left = left + "px"; //下划线的位置
-      });
+      watchEffect(
+        () => {
+          const { width } = selectedItem.value.getBoundingClientRect(); //获取选中元素的宽度
+          indicator.value.style.width = width + "px"; //将元素宽度赋给下划线
+          const { left: left1 } = container.value.getBoundingClientRect();
+          const { left: left2 } = selectedItem.value.getBoundingClientRect();
+          const left = left2 - left1;
+          indicator.value.style.left = left + "px"; //下划线的位置
+        },
+        { flush: "post" } //watchEffect改为后执行
+      );
     });
     //在运行是确认子组件的类型 检查context.slots.default()数组的每一项type
     const defaults = context.slots.default();
