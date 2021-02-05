@@ -1,6 +1,6 @@
 {
-  "name": "Custom-UI",
-  "version": "0.0.4",
+  "name": "coco-ui-1",
+  "version": "0.0.1",
   "files": [
     "dist/lib/*"
   ],
