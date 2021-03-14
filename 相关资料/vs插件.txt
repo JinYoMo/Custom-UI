@@ -36,3 +36,5 @@ https://www.snipaste.com/  snipaste截图工具
 #40a3dc  #7fc3e8  #d5f1ff  #40A9FF
 
 git remote add origin git@github.com:fanjinkun/coco-ui-website.git
+
+vscode：vscode-styled-jsx插件
